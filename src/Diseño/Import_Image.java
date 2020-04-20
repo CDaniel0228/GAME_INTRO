@@ -146,7 +146,7 @@ public class Import_Image {
     
     public ImageIcon ImagePrincipal(){
        
-        
+        Aux2=4;
         ImageIcon respuestaImage=null;
         if(Acumulador==contador5){
            Aux=10;
@@ -166,23 +166,23 @@ public class Import_Image {
         }
     
       }
-         
+            
+                while (Lista_2.size()<Aux2) {
+                aletorio_2 = random.nextInt(4);
+   
+                   if (!Lista_2.contains(aletorio_2)){
+                    Respuestas=aletorio_2;
+                    Lista_2.add(aletorio_2);
+                     Aux2=0;
+                     System.out.println(""+Respuestas);
+                    }
+                 }
          Acumulador++;
         
                 
          switch (Preguntas) {
             case 0:
-                Aux2=4;
-                 while (Lista_2.size()<Aux2) {
-                 aletorio_2 = random.nextInt(4);
-   
-                    if (!Lista_2.contains(aletorio_2)){
-                          Respuestas=aletorio_2;
-                            Lista_2.add(aletorio_2);
-                            Aux2=0;
-                            System.out.println(""+Respuestas);
-                    }
-                 }
+               
                         if(Respuestas==0){
                               respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
                               verificar_falsas++;
@@ -201,17 +201,7 @@ public class Import_Image {
                  break;
                  
             case 1:
-                 Aux2=4;
-                 while (Lista_2.size()<Aux2) {
-                 aletorio_2 = random.nextInt(4);
-   
-                    if (!Lista_2.contains(aletorio_2)){
-                          Respuestas=aletorio_2;
-                            Lista_2.add(aletorio_2);
-                            Aux2=0;
-                            System.out.println(""+Respuestas);
-                    }
-                 }
+                 
                         if(Respuestas==0){
                               respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
                               verificar_falsas++;
@@ -231,17 +221,8 @@ public class Import_Image {
                  break;
                  
             case 2:
-                  Aux2=4;
-                 while (Lista_2.size()<Aux2) {
-                 aletorio_2 = random.nextInt(4);
-   
-                    if (!Lista_2.contains(aletorio_2)){
-                          Respuestas=aletorio_2;
-                            Lista_2.add(aletorio_2);
-                            Aux2=0;
-                            System.out.println(""+Respuestas);
-                    }
-                 }
+                  
+                
                         if(Respuestas==0){
                               respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
                               verificar_falsas++;
@@ -261,17 +242,7 @@ public class Import_Image {
                  break;
                  
             case 3:
-                 Aux2=4;
-                 while (Lista_2.size()<Aux2) {
-                 aletorio_2 = random.nextInt(4);
-   
-                    if (!Lista_2.contains(aletorio_2)){
-                          Respuestas=aletorio_2;
-                            Lista_2.add(aletorio_2);
-                            Aux2=0;
-                            System.out.println(""+Respuestas);
-                    }
-                 }
+                 
                         if(Respuestas==0){
                               respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
                               verificar_falsas++;
@@ -291,17 +262,7 @@ public class Import_Image {
                  break;
                  
             case 4:
-                  Aux2=4;
-                 while (Lista_2.size()<Aux2) {
-                 aletorio_2 = random.nextInt(4);
-   
-                    if (!Lista_2.contains(aletorio_2)){
-                          Respuestas=aletorio_2;
-                            Lista_2.add(aletorio_2);
-                            Aux2=0;
-                            System.out.println(""+Respuestas);
-                    }
-                 }
+                  
                         if(Respuestas==0){
                               respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
                               verificar_falsas++;
@@ -321,17 +282,7 @@ public class Import_Image {
                  break;
                  
             case 5:
-                  Aux2=4;
-                 while (Lista_2.size()<Aux2) {
-                 aletorio_2 = random.nextInt(4);
-   
-                    if (!Lista_2.contains(aletorio_2)){
-                          Respuestas=aletorio_2;
-                            Lista_2.add(aletorio_2);
-                            Aux2=0;
-                            System.out.println(""+Respuestas);
-                    }
-                 }
+                  
                         if(Respuestas==0){
                               respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
                               verificar_falsas++;
@@ -351,17 +302,7 @@ public class Import_Image {
                  break;
                  
             case 6:
-                  Aux2=4;
-                 while (Lista_2.size()<Aux2) {
-                 aletorio_2 = random.nextInt(4);
-   
-                    if (!Lista_2.contains(aletorio_2)){
-                          Respuestas=aletorio_2;
-                            Lista_2.add(aletorio_2);
-                            Aux2=0;
-                            System.out.println(""+Respuestas);
-                    }
-                 }
+                  
                         if(Respuestas==0){
                               respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
                               verificar_falsas++;
@@ -381,17 +322,7 @@ public class Import_Image {
                  break;
                  
             case 7:
-                  Aux2=4;
-                 while (Lista_2.size()<Aux2) {
-                 aletorio_2 = random.nextInt(4);
-   
-                    if (!Lista_2.contains(aletorio_2)){
-                          Respuestas=aletorio_2;
-                            Lista_2.add(aletorio_2);
-                            Aux2=0;
-                            System.out.println(""+Respuestas);
-                    }
-                 }
+                  
                         if(Respuestas==0){
                               respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
                               verificar_falsas++;
@@ -411,17 +342,7 @@ public class Import_Image {
                  break;
                  
             case 8:
-                  Aux2=4;
-                 while (Lista_2.size()<Aux2) {
-                 aletorio_2 = random.nextInt(4);
-   
-                    if (!Lista_2.contains(aletorio_2)){
-                          Respuestas=aletorio_2;
-                            Lista_2.add(aletorio_2);
-                            Aux2=0;
-                            System.out.println(""+Respuestas);
-                    }
-                 }
+                  
                         if(Respuestas==0){
                               respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
                               verificar_falsas++;
@@ -441,17 +362,7 @@ public class Import_Image {
                  break;
                  
             case 9:
-                 Aux2=4;
-                 while (Lista_2.size()<Aux2) {
-                 aletorio_2 = random.nextInt(4);
-   
-                    if (!Lista_2.contains(aletorio_2)){
-                          Respuestas=aletorio_2;
-                            Lista_2.add(aletorio_2);
-                            Aux2=0;
-                            System.out.println(""+Respuestas);
-                    }
-                 }
+                 
                         if(Respuestas==0){
                               respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
                               verificar_falsas++;
@@ -478,11 +389,12 @@ public class Import_Image {
     }
     
     public String ImagePregunta(){
-      return Pregunta_aleatoria;  
+      return Pregunta_aleatoria+1;  
     }
     
     public int VerificarRespuesta(){
-        return verificar_verdaderas;
+        int NPreguntas=0;
+        return verificar_verdaderas+NPreguntas++;
     }
     
     public void Nueva(){
@@ -491,7 +403,7 @@ public class Import_Image {
     }
     
     public String RespuestaLink(){        
-      return Link;  
+      return "https://github.com/CDaniel0228/GAME_INTRO";  
     }
     
 }

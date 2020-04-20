@@ -22,7 +22,7 @@ public class Vista_Jf extends javax.swing.JFrame {
     String foto="";
     Guardar nuevo=new Guardar();
     Import_Image imagenes=new Import_Image();
-    
+    ImageIcon aux_Image=new ImageIcon();
 
      ImageIcon error=new javax.swing.ImageIcon(getClass().getResource("/Src//error.png"));
    
@@ -34,10 +34,12 @@ public class Vista_Jf extends javax.swing.JFrame {
         Campo_2.setVisible(false);
         error_1.setVisible(false);
         error_2.setVisible(false);
-         
-        Foto.setIcon(new ImageIcon(imagenes.Avatar().getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
-         error_1.setIcon(new ImageIcon(error.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
-         error_2.setIcon(new ImageIcon(error.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
+        
+        aux_Image = imagenes.Avatar(); 
+        Foto.setIcon(new ImageIcon(aux_Image.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
+        
+        error_1.setIcon(new ImageIcon(error.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
+        error_2.setIcon(new ImageIcon(error.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
          
     }
 
@@ -180,12 +182,12 @@ public class Vista_Jf extends javax.swing.JFrame {
            // Txt_jugador
         }else{
             if(foto.isEmpty()){
-                foto=imagenes.Avatar().toString();
+                foto=aux_Image.toString();
             }
             
        
-       
-       Foto.setIcon(new ImageIcon(imagenes.Avatar().getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
+       aux_Image = imagenes.Avatar();
+       Foto.setIcon(new ImageIcon(aux_Image.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
        
         jugador.setNombre(Txt_jugador.getText());
         jugador.setContraseña(Txt_contraseña.getText());
@@ -193,11 +195,14 @@ public class Vista_Jf extends javax.swing.JFrame {
         nuevo.Agregar(jugador, Txt_jugador.getText());
         
         nuevo.carpeta(carpeta);
-        nuevo.txt(txt,Txt_jugador.getText() );
+        nuevo.txt_Guardar(txt,Txt_jugador.getText() );
         foto="";
         
           error_1.setVisible(false);
           error_2.setVisible(false);
+          Txt_jugador.setText("");
+          Txt_contraseña.setText("");
+          
         }        
                
        
@@ -236,9 +241,9 @@ public class Vista_Jf extends javax.swing.JFrame {
     }//GEN-LAST:event_InicioActionPerformed
 
     private void Txt_jugadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txt_jugadorKeyReleased
-       
-        String aux=nuevo.Buscar_I(Txt_jugador.getText());
+        String aux=nuevo.Buscar_Image(Txt_jugador.getText());
        if(!aux.isEmpty()){
+           
            String basio=aux;
            basio=basio.replace("file:/", "");
            aux=aux.replace("\\", "/");
@@ -249,7 +254,7 @@ public class Vista_Jf extends javax.swing.JFrame {
         Foto.setIcon(new ImageIcon(ms.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
         Foto.setIcon(new ImageIcon(mss.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
        }else{
-          Foto.setIcon(new ImageIcon(imagenes.Avatar().getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
+          Foto.setIcon(new ImageIcon(aux_Image.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
        }
        
       if(Txt_jugador.getText().isEmpty()){
@@ -266,7 +271,7 @@ public class Vista_Jf extends javax.swing.JFrame {
         getToolkit().beep();
         evt.consume();
          
-        JOptionPane.showMessageDialog(null, "Algo Anda Mal :[  ");
+        //JOptionPane.showMessageDialog(null, "Algo Anda Mal :[  ");
         
      }
     }//GEN-LAST:event_Txt_jugadorKeyTyped

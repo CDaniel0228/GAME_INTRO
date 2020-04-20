@@ -13,11 +13,12 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
+import Funciones.Seguridad;
 
 public class Guardar {
     ArrayList<Usuarios> usuario=new ArrayList();
     ArrayList <String> datos=new ArrayList();
+    Seguridad Txt_Cifrar=new Seguridad();
    
     boolean igual;
   
@@ -53,7 +54,7 @@ public class Guardar {
         return ref;
     } 
      
-     public String Buscar_I(String nombre){
+     public String Buscar_Image(String nombre){
          
         String ref = "" ;
         for(int i=0; i<usuario.size(); i++){
@@ -64,6 +65,8 @@ public class Guardar {
         }
         return ref;
     } 
+     
+     
    public void subir(String direccion){
         
         try (BufferedReader bf = new BufferedReader(new FileReader(direccion))) {
@@ -73,9 +76,10 @@ public class Guardar {
             while((bfRead = bf.readLine()) != null){ 
                 //haz el ciclo, mientras bfRead tiene datos
                 //temp.append(bfRead).append("\n");
-                temp += bfRead+"\n"; //guardado el texto del archivo
-                
-                datos.add(bfRead);
+               // temp += bfRead+"\n"; //guardado el texto del archivo
+               
+                temp=Txt_Cifrar.Desifrar(bfRead);
+                datos.add(temp);
                 
             }
            
@@ -104,7 +108,7 @@ public class Guardar {
     }
     
     
-    public void txt(File txt, String Nombre){
+    public void txt_Guardar(File txt, String Nombre){
         BufferedWriter bw = null;
          if(txt.exists()) {
              try {
@@ -113,11 +117,14 @@ public class Guardar {
                      if (!igual){
                          System.out.println("NO");
                      }else{
-                     bw.write(usuario.get(i).getNombre());
+                     String convertir= Txt_Cifrar.Cifrar(usuario.get(i).getNombre());
+                     bw.write(convertir);
                      bw.newLine();
-                     bw.write(usuario.get(i).getContraseña());
+                     convertir= Txt_Cifrar.Cifrar(usuario.get(i).getContraseña());
+                     bw.write(convertir);
                      bw.newLine();
-                     bw.write(usuario.get(i).getFoto());
+                     convertir= Txt_Cifrar.Cifrar(usuario.get(i).getFoto());
+                     bw.write(convertir);
                      bw.newLine();
                      }
                  }
@@ -133,11 +140,14 @@ public class Guardar {
                      if (!igual){
                          System.out.println("NO");
                      }else{
-                     bw.write(usuario.get(i).getNombre());
+                     String convertir= Txt_Cifrar.Cifrar(usuario.get(i).getNombre());
+                     bw.write(convertir);
                      bw.newLine();
-                     bw.write(usuario.get(i).getContraseña());
+                     convertir= Txt_Cifrar.Cifrar(usuario.get(i).getContraseña());
+                     bw.write(convertir);
                      bw.newLine();
-                     bw.write(usuario.get(i).getFoto());
+                     convertir= Txt_Cifrar.Cifrar(usuario.get(i).getFoto());
+                     bw.write(convertir);
                      bw.newLine();
                      }
                  }

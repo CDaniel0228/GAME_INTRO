@@ -46,6 +46,7 @@
               <Font name="PMingLiU" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Fasil"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -59,28 +60,11 @@
               <Font name="PMingLiU" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Difisil"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="190" y="190" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JTextArea" name="Mensaje">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value=" TE mostrara cuales&#xa; son las funciones&#xa; de cada uno de los&#xa;     botones. :]"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder bevelType="0"/>
-              </Border>
-            </Property>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="320" width="170" height="86"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -96,8 +80,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_ayuda">
           <Events>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_ayudaMouseEntered"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_ayudaMouseExited"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ayudaActionPerformed"/>
           </Events>
           <Constraints>
@@ -254,6 +236,13 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="150" y="20" width="100" height="70"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="IFondo">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="0" y="0" width="430" height="500"/>
             </Constraint>
           </Constraints>
         </Component>

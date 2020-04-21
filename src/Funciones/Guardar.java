@@ -109,14 +109,14 @@ public class Guardar {
     
     
     public void txt_Guardar(File txt, String Nombre){
-        BufferedWriter bw = null;
-         if(txt.exists()) {
+        
              try {
+                 
+                if(igual) {
+                 BufferedWriter bw = null;
                  bw = new BufferedWriter(new FileWriter(txt));
                  for(int i=0; i<usuario.size(); i++){
-                     if (!igual){
-                         System.out.println("NO");
-                     }else{
+                     
                      String convertir= Txt_Cifrar.Cifrar(usuario.get(i).getNombre());
                      bw.write(convertir);
                      bw.newLine();
@@ -126,41 +126,19 @@ public class Guardar {
                      convertir= Txt_Cifrar.Cifrar(usuario.get(i).getFoto());
                      bw.write(convertir);
                      bw.newLine();
-                     }
+                     
+                  }
+                  bw.close();
+                 }
+                 else{
+                     System.out.println("NOES");
+                     
                  }
                  
              } catch (IOException ex) {
                  Logger.getLogger(Vista_Jf.class.getName()).log(Level.SEVERE, null, ex);
              }
             
-        } else {
-             try {
-                 bw = new BufferedWriter(new FileWriter(txt));
-                for(int i=0; i<usuario.size(); i++){
-                     if (!igual){
-                         System.out.println("NO");
-                     }else{
-                     String convertir= Txt_Cifrar.Cifrar(usuario.get(i).getNombre());
-                     bw.write(convertir);
-                     bw.newLine();
-                     convertir= Txt_Cifrar.Cifrar(usuario.get(i).getContraseña());
-                     bw.write(convertir);
-                     bw.newLine();
-                     convertir= Txt_Cifrar.Cifrar(usuario.get(i).getFoto());
-                     bw.write(convertir);
-                     bw.newLine();
-                     }
-                 }
-             } catch (IOException ex) {
-                 Logger.getLogger(Vista_Jf.class.getName()).log(Level.SEVERE, null, ex);
-             }
-            
-        }
-       try {
-           bw.close();
-       } catch (IOException ex) {
-           Logger.getLogger(Vista_Jf.class.getName()).log(Level.SEVERE, null, ex);
-       }
     }
     
     

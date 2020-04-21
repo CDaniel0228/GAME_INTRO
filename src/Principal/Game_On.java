@@ -22,12 +22,13 @@ public class Game_On extends javax.swing.JFrame {
     int segundos=0;
     int Preguntas=0;
     boolean Siguiente=true, Confirmar=false;
-    
+    ImageIcon I_fondo=new javax.swing.ImageIcon(getClass().getResource("/Src//Fondo4.jpg"));
     public Game_On() {
         initComponents();
         this.setLocationRelativeTo(null);
         Tiempo();
         
+        IFondo.setIcon(new ImageIcon(I_fondo.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH)));
         Image_1.setIcon(new ImageIcon(nueva.ImagePrincipal().getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
         Image_2.setIcon(new ImageIcon(nueva.ImagePrincipal().getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
         Image_3.setIcon(new ImageIcon(nueva.ImagePrincipal().getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
@@ -65,6 +66,7 @@ public class Game_On extends javax.swing.JFrame {
         Lb_vidas = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         Btn_informacion = new javax.swing.JButton();
+        IFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -172,6 +174,7 @@ public class Game_On extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Btn_informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 450, 50, 50));
+        jPanel1.add(IFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 500));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -189,6 +192,7 @@ public class Game_On extends javax.swing.JFrame {
 
     private void Btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_volverActionPerformed
         Niveles niveles= new Niveles();
+        T.stop();
         niveles.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_Btn_volverActionPerformed
@@ -336,6 +340,7 @@ public class Game_On extends javax.swing.JFrame {
     private javax.swing.JButton Btn_informacion;
     private javax.swing.JButton Btn_siguiente;
     private javax.swing.JButton Btn_volver;
+    private javax.swing.JLabel IFondo;
     private javax.swing.JLabel Image_1;
     private javax.swing.JLabel Image_2;
     private javax.swing.JLabel Image_3;

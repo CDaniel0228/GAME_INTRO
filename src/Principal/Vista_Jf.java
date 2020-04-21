@@ -25,6 +25,7 @@ public class Vista_Jf extends javax.swing.JFrame {
     ImageIcon aux_Image=new ImageIcon();
 
      ImageIcon error=new javax.swing.ImageIcon(getClass().getResource("/Src//error.png"));
+     ImageIcon I_fondo=new javax.swing.ImageIcon(getClass().getResource("/Src//Fondo6.jpg"));
    
     public Vista_Jf() {
         initComponents();
@@ -37,6 +38,7 @@ public class Vista_Jf extends javax.swing.JFrame {
         
         aux_Image = imagenes.Avatar(); 
         Foto.setIcon(new ImageIcon(aux_Image.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
+        IFondo.setIcon(new ImageIcon(I_fondo.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH)));
         
         error_1.setIcon(new ImageIcon(error.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
         error_2.setIcon(new ImageIcon(error.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
@@ -57,9 +59,10 @@ public class Vista_Jf extends javax.swing.JFrame {
         Inicio = new javax.swing.JButton();
         Txt_jugador = new javax.swing.JTextField();
         error_1 = new javax.swing.JLabel();
-        error_2 = new javax.swing.JLabel();
         Campo_1 = new javax.swing.JLabel();
         Campo_2 = new javax.swing.JLabel();
+        error_2 = new javax.swing.JLabel();
+        IFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -137,6 +140,14 @@ public class Vista_Jf extends javax.swing.JFrame {
         });
         jPanel1.add(error_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 255, 20, 20));
 
+        Campo_1.setFont(new java.awt.Font("MV Boli", 1, 12)); // NOI18N
+        Campo_1.setText("Campo Basio");
+        jPanel1.add(Campo_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, -1, 30));
+
+        Campo_2.setFont(new java.awt.Font("MV Boli", 1, 12)); // NOI18N
+        Campo_2.setText("Campo Basio");
+        jPanel1.add(Campo_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, -1, 30));
+
         error_2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 error_2MouseEntered(evt);
@@ -146,14 +157,7 @@ public class Vista_Jf extends javax.swing.JFrame {
             }
         });
         jPanel1.add(error_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 335, 20, 20));
-
-        Campo_1.setFont(new java.awt.Font("MV Boli", 1, 12)); // NOI18N
-        Campo_1.setText("Campo Basio");
-        jPanel1.add(Campo_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, -1, 30));
-
-        Campo_2.setFont(new java.awt.Font("MV Boli", 1, 12)); // NOI18N
-        Campo_2.setText("Campo Basio");
-        jPanel1.add(Campo_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, -1, 30));
+        jPanel1.add(IFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -313,6 +317,7 @@ public class Vista_Jf extends javax.swing.JFrame {
     private javax.swing.JLabel Campo_1;
     private javax.swing.JLabel Campo_2;
     private javax.swing.JLabel Foto;
+    private javax.swing.JLabel IFondo;
     private javax.swing.JButton Inicio;
     private javax.swing.JTextField Txt_contraseña;
     private javax.swing.JTextField Txt_jugador;

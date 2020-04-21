@@ -12,13 +12,14 @@ import Diseño.Import_Image;
 
 public class Niveles extends javax.swing.JFrame {
      Import_Image nueva=new Import_Image();
+     ImageIcon I_fondo=new javax.swing.ImageIcon(getClass().getResource("/Src//Fondo5.jpg"));
      
     public Niveles() {
         initComponents();
         this.setLocationRelativeTo(null);
-        Mensaje.setVisible(false);
         
         
+        IFondo.setIcon(new ImageIcon(I_fondo.getImage().getScaledInstance(530, 500, Image.SCALE_SMOOTH)));
         Btn_confi.setIcon(new ImageIcon(nueva.Botones().getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
         btn_ayuda.setIcon(new ImageIcon(nueva.Botones().getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
         Btn_tienda.setIcon(new ImageIcon(nueva.Botones().getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
@@ -35,7 +36,6 @@ public class Niveles extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Rd_fasil = new javax.swing.JRadioButton();
         Rd_difisil = new javax.swing.JRadioButton();
-        Mensaje = new javax.swing.JTextArea();
         Btn_inicio = new javax.swing.JButton();
         btn_ayuda = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -51,6 +51,7 @@ public class Niveles extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        IFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -60,18 +61,13 @@ public class Niveles extends javax.swing.JFrame {
 
         Rd_fasil.setFont(new java.awt.Font("PMingLiU", 1, 12)); // NOI18N
         Rd_fasil.setText("Fasil");
+        Rd_fasil.setContentAreaFilled(false);
         jPanel1.add(Rd_fasil, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, -1, -1));
 
         Rd_difisil.setFont(new java.awt.Font("PMingLiU", 1, 12)); // NOI18N
         Rd_difisil.setText("Difisil");
+        Rd_difisil.setContentAreaFilled(false);
         jPanel1.add(Rd_difisil, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, -1, -1));
-
-        Mensaje.setEditable(false);
-        Mensaje.setColumns(20);
-        Mensaje.setRows(5);
-        Mensaje.setText(" TE mostrara cuales\n son las funciones\n de cada uno de los\n     botones. :]");
-        Mensaje.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        jPanel1.add(Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 170, 86));
 
         Btn_inicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,14 +76,6 @@ public class Niveles extends javax.swing.JFrame {
         });
         jPanel1.add(Btn_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 50, 50));
 
-        btn_ayuda.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_ayudaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_ayudaMouseExited(evt);
-            }
-        });
         btn_ayuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ayudaActionPerformed(evt);
@@ -155,6 +143,7 @@ public class Niveles extends javax.swing.JFrame {
         jLabel8.setText("AYUDA");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 100, 70));
+        jPanel1.add(IFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 500));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -178,14 +167,6 @@ public class Niveles extends javax.swing.JFrame {
       //this.setVisible(false);
       ayuda.setVisible(true);
     }//GEN-LAST:event_btn_ayudaActionPerformed
-
-    private void btn_ayudaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ayudaMouseEntered
-     Mensaje.setVisible(true);      
-    }//GEN-LAST:event_btn_ayudaMouseEntered
-
-    private void btn_ayudaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ayudaMouseExited
-        Mensaje.setVisible(false);  
-    }//GEN-LAST:event_btn_ayudaMouseExited
 
     private void Btn_confiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_confiActionPerformed
        Configurar configuracion=new Configurar();
@@ -242,7 +223,7 @@ public class Niveles extends javax.swing.JFrame {
     private javax.swing.JButton Btn_confi;
     private javax.swing.JButton Btn_inicio;
     private javax.swing.JButton Btn_tienda;
-    private javax.swing.JTextArea Mensaje;
+    private javax.swing.JLabel IFondo;
     private javax.swing.JRadioButton Rd_difisil;
     private javax.swing.JRadioButton Rd_fasil;
     private javax.swing.JButton btn_ayuda;

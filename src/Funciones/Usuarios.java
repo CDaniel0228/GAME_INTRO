@@ -6,7 +6,9 @@ public class Usuarios {
     private String nombre;
     private String contraseña;
     private String foto;
-
+    private String puntos;
+    private String tiempo;
+        
     public String getNombre() {
         return nombre;
     }
@@ -29,6 +31,23 @@ public class Usuarios {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+     
+    public String getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(String puntos) {
+        this.puntos = puntos;
+    }
+
+
+    public String getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(String tiempo) {
+        this.tiempo = tiempo;
     }
     
     

@@ -10,38 +10,45 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import Diseño.Import_Image;
 
 
 
-public class Vista_Jf extends javax.swing.JFrame {
+public class Vista_Jf extends javax.swing.JFrame{
 
+    public static final String Rutas="./src/Source/";
     String foto="";
     Guardar nuevo=new Guardar();
     Import_Image imagenes=new Import_Image();
     ImageIcon aux_Image=new ImageIcon();
-
-     ImageIcon error=new javax.swing.ImageIcon(getClass().getResource("/Src//error.png"));
-     ImageIcon I_fondo=new javax.swing.ImageIcon(getClass().getResource("/Src//Fondo6.jpg"));
+    
+    
    
     public Vista_Jf() {
         initComponents();
+        
         this.setLocationRelativeTo(null);
-        nuevo.subir("C:\\GAME_ON\\Usuarios.txt");
+        this.setIconImage(new ImageIcon(Rutas+"Portar.jpeg").getImage());
+        
+        ImageIcon I_fondo=new ImageIcon(Rutas+"Fondo6.jpg");
+        IFondo.setIcon(new ImageIcon(I_fondo.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH)));
+
+        ImageIcon error=new ImageIcon(Rutas+"error.png");
+        nuevo.SubirUsuario_txt("C:\\GAME_ON\\Usuarios.txt");
         Campo_1.setVisible(false);
         Campo_2.setVisible(false);
         error_1.setVisible(false);
         error_2.setVisible(false);
         
-        aux_Image = imagenes.Avatar(); 
-        Foto.setIcon(new ImageIcon(aux_Image.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
-        IFondo.setIcon(new ImageIcon(I_fondo.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH)));
-        
         error_1.setIcon(new ImageIcon(error.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
         error_2.setIcon(new ImageIcon(error.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
+        aux_Image = imagenes.Avatar(); 
+        Foto.setIcon(new ImageIcon(aux_Image.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
+        
+       
+        
          
     }
 
@@ -163,11 +170,11 @@ public class Vista_Jf extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -179,11 +186,12 @@ public class Vista_Jf extends javax.swing.JFrame {
         File carpeta = new File("C:/GAME_ON");
         File txt = new File("C:/GAME_ON/Usuarios.txt");
         
-        if(Txt_jugador.getText().isEmpty() || Txt_contraseña.getText().isEmpty()){
+        if(Txt_jugador.getText().isEmpty() ){
           error_1.setVisible(true);
-          error_2.setVisible(true);
-            
-           // Txt_jugador
+          
+        }else if(Txt_contraseña.getText().isEmpty()){
+            error_2.setVisible(true);
+        
         }else{
             if(foto.isEmpty()){
                 foto=aux_Image.toString();
@@ -196,10 +204,13 @@ public class Vista_Jf extends javax.swing.JFrame {
         jugador.setNombre(Txt_jugador.getText());
         jugador.setContraseña(Txt_contraseña.getText());
         jugador.setFoto(foto);
+        jugador.setPuntos("0");
+        jugador.setTiempo("10");
         nuevo.Agregar(jugador, Txt_jugador.getText());
         
         nuevo.carpeta(carpeta);
-        nuevo.txt_Guardar(txt,Txt_jugador.getText() );
+        //Guardar
+        nuevo.txt_GuardarUsuario(txt);
         foto="";
         
           error_1.setVisible(false);
@@ -216,9 +227,9 @@ public class Vista_Jf extends javax.swing.JFrame {
         JFileChooser jt=new JFileChooser();
         jt.setDialogTitle("Foto");
         if(jt.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            rsscalelabel.RSScaleLabel.setScaleLabel(Foto, jt.getSelectedFile().toString());
             foto=jt.getSelectedFile().toString();
-            
+            ImageIcon fotogram=new ImageIcon(foto);
+            Foto.setIcon(new ImageIcon(fotogram.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
         }
     }//GEN-LAST:event_FotoMouseClicked
 
@@ -232,40 +243,37 @@ public class Vista_Jf extends javax.swing.JFrame {
     }//GEN-LAST:event_Txt_contraseñaKeyReleased
 
     private void InicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InicioActionPerformed
-        
+       
         if(nuevo.Buscar_U(Txt_jugador.getText(), Txt_contraseña.getText())){
-            JOptionPane.showMessageDialog(null, "Usuario_Encontrado");
+            
             Niveles nv=new Niveles();
             nv.setVisible(true);
             this.setVisible(false);
             
         }else{
-            JOptionPane.showMessageDialog(null, "Usuario_No_Encontrado");
+            System.out.println("No existe");
         } 
     }//GEN-LAST:event_InicioActionPerformed
 
     private void Txt_jugadorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txt_jugadorKeyReleased
         String aux=nuevo.Buscar_Image(Txt_jugador.getText());
-       if(!aux.isEmpty()){
-           
-           String basio=aux;
-           basio=basio.replace("file:/", "");
-           aux=aux.replace("\\", "/");
-        
-        ImageIcon ms=new ImageIcon(aux);
-        ImageIcon mss=new ImageIcon(basio);
-        
-        Foto.setIcon(new ImageIcon(ms.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
-        Foto.setIcon(new ImageIcon(mss.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
+        System.out.println(aux);
+      
+       if(!aux.isEmpty()){ 
+          
+        aux=aux.replace("file:/", "");
+        ImageIcon AvatarImage=new ImageIcon(aux);
+        Foto.setIcon(new ImageIcon(AvatarImage.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
+           System.out.println("1");
        }else{
           Foto.setIcon(new ImageIcon(aux_Image.getImage().getScaledInstance(130, 130, Image.SCALE_SMOOTH)));
+        System.out.println("3");
        }
-       
       if(Txt_jugador.getText().isEmpty()){
         error_1.setVisible(true);
       }else{
         error_1.setVisible(false);
-      }
+       }
             
     }//GEN-LAST:event_Txt_jugadorKeyReleased
 
@@ -274,8 +282,6 @@ public class Vista_Jf extends javax.swing.JFrame {
      if(Character.isDigit(vl)){
         getToolkit().beep();
         evt.consume();
-         
-        //JOptionPane.showMessageDialog(null, "Algo Anda Mal :[  ");
         
      }
     }//GEN-LAST:event_Txt_jugadorKeyTyped
@@ -296,18 +302,19 @@ public class Vista_Jf extends javax.swing.JFrame {
         Campo_2.setVisible(false);
     }//GEN-LAST:event_error_2MouseExited
 
-    
-    public static void main(String args[]) {
+    /**
+     *
+     * @param args
+     */
+    public static void main(String args[]) throws ExceptionInInitializerError{
        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Vista_Jf().setVisible(true);
-                 
-                try {
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-                    Logger.getLogger(Vista_Jf.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Vista_Jf().setVisible(true);
+            
+            try {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+                Logger.getLogger(Vista_Jf.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }

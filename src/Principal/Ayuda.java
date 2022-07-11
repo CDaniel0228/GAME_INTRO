@@ -5,10 +5,12 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import Diseño.Import_Image;
 
+
 public class Ayuda extends javax.swing.JFrame {
+    public static final String Rutas="../src/Source/";
     Import_Image nueva=new Import_Image();
-    ImageIcon Image_lb=new javax.swing.ImageIcon(getClass().getResource("/Src//Tienda.jpg"));
-    ImageIcon I_fondo=new javax.swing.ImageIcon(getClass().getResource("/Src//Fondo3.jpg"));
+    ImageIcon Image_lb=new ImageIcon(Rutas+"Tienda.jpg");
+    ImageIcon I_fondo=new ImageIcon(Rutas+"Fondo3.jpg");
     
     public Ayuda() {
         initComponents();

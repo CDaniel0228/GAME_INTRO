@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 
 
 public class Import_Image {
+    public static final String Rutas="./src/Source/";
      int contador=0;
      int contador2=0;
      int contador3=0;
@@ -30,12 +31,14 @@ public class Import_Image {
      
      String Link="";
      String Pregunta_aleatoria="";
-       
+     
     public ImageIcon Avatar(){
+        
        int indice= (int) (Math.random()*10);
-       String rt[]={"/Src//img_1.jpg", "/Src//img_2.jpg", "/Src//img_4.jpg", "/Src//img_5.jpg", "/Src//lucha.png",
-       "/Src//img_6.jpg", "/Src//img_7.jpg", "/Src//img_8.jpg", "/Src//img_9.jpg", "/Src//img_10.jpg"};
-       ImageIcon Avatar=new javax.swing.ImageIcon(getClass().getResource(rt[indice]));
+       String rt[]={Rutas+"img_1.jpg", Rutas+"img_2.jpg", Rutas+"img_4.jpg", Rutas+"img_5.jpg", 
+           Rutas+"lucha.png", Rutas+"img_6.jpg", Rutas+"img_7.jpg", Rutas+"img_8.jpg",
+           Rutas+"img_9.jpg", Rutas+"img_10.jpg"};
+       ImageIcon Avatar=new ImageIcon(rt[indice]);
        
      return Avatar;
     }
@@ -43,24 +46,24 @@ public class Import_Image {
     public ImageIcon ImageB(boolean boton){
         ImageIcon funcion_B=null;
         
-        String ruta[]={"/Src//Tienda.jpg", "/Src//Confi.jpg", "/Src//Puntos.jpg",
-        "/Src//Inicio.jpg", "/Src//web.png", "/Src//Verificar.png"};
+        String ruta[]={Rutas+"Tienda.jpg", Rutas+"Confi.jpg", Rutas+"Puntos.jpg",
+        Rutas+"Inicio.jpg", Rutas+"web.png", Rutas+"Verificar.png"};
         
         String Ayuda[]={"s","s","s","s","s","s"};
         
         if(boton && contador4>=0 && contador4<5){
              contador4++;
-             funcion_B=new javax.swing.ImageIcon(getClass().getResource(ruta[contador4]));
+             funcion_B=new ImageIcon(ruta[contador4]);
              Aux3=Ayuda[contador4];
         }else if(!boton && contador4>0 && contador4<=5 ){
             contador4--;
-            funcion_B=new javax.swing.ImageIcon(getClass().getResource(ruta[contador4]));
+            funcion_B=new ImageIcon(ruta[contador4]);
             Aux3=Ayuda[contador4];
         }else if(contador4==5){
-            funcion_B=new javax.swing.ImageIcon(getClass().getResource(ruta[contador4]));
+            funcion_B=new ImageIcon(ruta[contador4]);
             Aux3=Ayuda[contador4];
         }else if(contador4==0){
-            funcion_B=new javax.swing.ImageIcon(getClass().getResource(ruta[contador4]));
+            funcion_B=new ImageIcon(ruta[contador4]);
             Aux3=Ayuda[contador4];
         }
        
@@ -77,23 +80,21 @@ public class Import_Image {
         ImageIcon image_boton = null;
          switch (contador) {
              case 0:
-                 image_boton=new javax.swing.ImageIcon(getClass().getResource("/Src//confi.jpg"));
+                 image_boton=new ImageIcon(Rutas+"confi.jpg");
                  break;
              case 1:
-                 image_boton=new javax.swing.ImageIcon(getClass().getResource("/Src//help.jpg"));
+                 image_boton=new ImageIcon(Rutas+"help.jpg");
                  break;
              case 2:
-                 image_boton=new javax.swing.ImageIcon(getClass().getResource("/Src//Tienda.jpg"));
+                 image_boton=new ImageIcon(Rutas+"Tienda.jpg");
                  break;
              case 3:
-                 image_boton=new javax.swing.ImageIcon(getClass().getResource("/Src//puntos.jpg"));
+                 image_boton=new  ImageIcon(Rutas+"Volver.jpg");
                  break;
              case 4:
-                 image_boton=new javax.swing.ImageIcon(getClass().getResource("/Src//Volver.jpg"));
+                 image_boton=new ImageIcon(Rutas+"Inicio.jpg");
                  break;
-             case 5:
-                 image_boton=new javax.swing.ImageIcon(getClass().getResource("/Src//Inicio.jpg"));
-                 break;
+             
              default:
                  break;
          }
@@ -105,16 +106,16 @@ public class Import_Image {
         ImageIcon image_boton2 = null;
          switch (contador2) {
              case 0:
-                 image_boton2=new javax.swing.ImageIcon(getClass().getResource("/Src//devolver.png"));
+                 image_boton2=new ImageIcon(Rutas+"devolver.png");
                  break;
              case 1:
-                 image_boton2=new javax.swing.ImageIcon(getClass().getResource("/Src//web.png"));
+                 image_boton2=new ImageIcon(Rutas+"web.png");
                  break;
              case 2:
-                 image_boton2=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.png"));
+                 image_boton2=new ImageIcon(Rutas+"Verificar.png");
                  break;
              case 3:
-                 image_boton2=new javax.swing.ImageIcon(getClass().getResource("/Src//siguiente2.png"));
+                 image_boton2=new ImageIcon(Rutas+"siguiente2.png");
                  break;
              
              default:
@@ -131,10 +132,10 @@ public class Import_Image {
         ImageIcon help=null;
         switch (contador3) {
              case 0:
-                 help=new javax.swing.ImageIcon(getClass().getResource("/Src//Anterior_1.png"));
+                 help=new  ImageIcon(Rutas+"Anterior_1.png");
                  break;
              case 1:
-                 help=new javax.swing.ImageIcon(getClass().getResource("/Src//Siguiente_1.png"));
+                 help=new ImageIcon(Rutas+"Siguiente_1.png");
                  break;
                  default:
                      break;
@@ -184,39 +185,39 @@ public class Import_Image {
             case 0:
                
                         if(Respuestas==0){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Chimbilaco2.jpeg");
                               verificar_falsas++;
                         }else if(Respuestas==1){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Ecdotico.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Chimbilaco.jpeg");
                               verificar_verdaderas=verificar_falsas+1;
                         }else if(Respuestas==2){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Chimbilaco3.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==3){
-                             respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                             respuestaImage=new ImageIcon(Rutas+"Chimbilaco4.jpg");
                              verificar_falsas++;
                          }
-                Link="";
-                Pregunta_aleatoria="";
+                Link="https://brainly.lat/tarea/4832937";
+                Pregunta_aleatoria="SE LE CONOCE COMO CHIMBILACO";
                  break;
                  
             case 1:
                  
                         if(Respuestas==0){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Ediculo2.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==1){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Ecdotico.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Ediculo.jpeg");
                               verificar_verdaderas=verificar_falsas+1;
                         }else if(Respuestas==2){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Ediculo3.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==3){
-                             respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                             respuestaImage=new ImageIcon(Rutas+"Ediculo4.jpg");
                              verificar_falsas++;
                          }
-                Link="";
-                Pregunta_aleatoria="";
+                Link="https://es.wikipedia.org/wiki/Ed%C3%ADculo";
+                Pregunta_aleatoria="EDIFICIO PEQUEÑO NOMBRADO EDICULO";
              
                  break;
                  
@@ -224,160 +225,160 @@ public class Import_Image {
                   
                 
                         if(Respuestas==0){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Joyel2.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==1){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Ecdotico.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Joyel.jpg");
                               verificar_verdaderas=verificar_falsas+1;
                         }else if(Respuestas==2){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Joyel3.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==3){
-                             respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                             respuestaImage=new ImageIcon(Rutas+"Joyel4.jpg");
                              verificar_falsas++;
                          }
-                 Link="";
-                 Pregunta_aleatoria="";
+                 Link="https://dle.rae.es/joyel";
+                 Pregunta_aleatoria="TIPO DE JOYA DENOMINADA JOYEL";
                  
                  break;
                  
             case 3:
                  
                         if(Respuestas==0){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Ponto2.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==1){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Ecdotico.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Ponto.jpg");
                               verificar_verdaderas=verificar_falsas+1;
                         }else if(Respuestas==2){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Ponto3.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==3){
-                             respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                             respuestaImage=new ImageIcon(Rutas+"Ponto4.jpg");
                              verificar_falsas++;
                          }
-                 Link="";
-                 Pregunta_aleatoria="";
+                 Link="https://es.thefreedictionary.com/ponto";
+                 Pregunta_aleatoria="ESTA EN DIVERSOS PAISAJES DENOMINADO PONTO";
                  
                  break;
                  
             case 4:
                   
                         if(Respuestas==0){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Sapenco2.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==1){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Ecdotico.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Sapenco.jpeg");
                               verificar_verdaderas=verificar_falsas+1;
                         }else if(Respuestas==2){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Sapenco3.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==3){
-                             respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                             respuestaImage=new ImageIcon(Rutas+"Sapenco4.jpg");
                              verificar_falsas++;
                          }
-                 Link="";
-                 Pregunta_aleatoria="";
+                 Link="https://dle.rae.es/sapenco";
+                 Pregunta_aleatoria="ANIAMAL COLORIDO NOMBRADO SAPENCO";
                  
                  break;
                  
             case 5:
                   
                         if(Respuestas==0){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Sordon2.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==1){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Ecdotico.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Sordon.jpg");
                               verificar_verdaderas=verificar_falsas+1;
                         }else if(Respuestas==2){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Sordon3.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==3){
-                             respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                             respuestaImage=new ImageIcon(Rutas+"Sordon4.jpg");
                              verificar_falsas++;
                          }
-                 Link="";
-                 Pregunta_aleatoria="";
+                 Link="https://es.thefreedictionary.com/sord%C3%B3n";
+                 Pregunta_aleatoria="INSTRUMENTO DE AIRE NOMBRADO SORDON";
                  
                  break;
                  
             case 6:
                   
                         if(Respuestas==0){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Ñenga2.jpeg");
                               verificar_falsas++;
                         }else if(Respuestas==1){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Ecdotico.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Ñenga.jpeg");
                               verificar_verdaderas=verificar_falsas+1;
                         }else if(Respuestas==2){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Ñenga3.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==3){
-                             respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                             respuestaImage=new ImageIcon(Rutas+"Ñenga4.jpg");
                              verificar_falsas++;
                          }
-                 Link="";
-                 Pregunta_aleatoria="";
+                 Link="https://dle.rae.es/%C3%B1engo";
+                 Pregunta_aleatoria="PERSONA LA CUAL NO ENGORDA NOMBRADA ÑENGA";
                  
                  break;
                  
             case 7:
                   
                         if(Respuestas==0){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Zaino2.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==1){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Ecdotico.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Zaino.jpg");
                               verificar_verdaderas=verificar_falsas+1;
                         }else if(Respuestas==2){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Zaino3.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==3){
-                             respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                             respuestaImage=new ImageIcon(Rutas+"Zaino4.jpg");
                              verificar_falsas++;
                          }
-                Link="";
-                Pregunta_aleatoria="";
+                Link="http://etimologias.dechile.net/?zaino";
+                Pregunta_aleatoria="PERAONA QUE PIENSA EN SI MISMO NOMBRADA ZAINO";
                 
                  break;
                  
             case 8:
                   
                         if(Respuestas==0){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Burdegano2.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==1){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Ecdotico.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Burdegano.jpg");
                               verificar_verdaderas=verificar_falsas+1;
                         }else if(Respuestas==2){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Burdegano3.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==3){
-                             respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                             respuestaImage=new ImageIcon(Rutas+"Burdegano4.jpg");
                              verificar_falsas++;
                          }
-                 Link="";
-                 Pregunta_aleatoria="";
+                 Link="https://es.wikipedia.org/wiki/Burd%C3%A9gano";
+                 Pregunta_aleatoria="ANIMAL HIBRIDO NOMBRADO BURDEGANO";
                  
                  break;
                  
             case 9:
                  
                         if(Respuestas==0){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Chamuco2.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==1){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Ecdotico.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Chamuco.png");
                               verificar_verdaderas=verificar_falsas+1;
                         }else if(Respuestas==2){
-                              respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                              respuestaImage=new ImageIcon(Rutas+"Chamuco3.jpg");
                               verificar_falsas++;
                         }else if(Respuestas==3){
-                             respuestaImage=new javax.swing.ImageIcon(getClass().getResource("/Src//Verificar.jpg"));
+                             respuestaImage=new ImageIcon(Rutas+"Chamuco4.jpg");
                              verificar_falsas++;
                          }
-                 Link="";
-                 Pregunta_aleatoria="";
+                 Link="https://es.wiktionary.org/wiki/chamuco";
+                 Pregunta_aleatoria="ENTIDAD PARANORMAL NOMBRADA CHAMUCO";
                  
                  break;
                  
@@ -389,7 +390,7 @@ public class Import_Image {
     }
     
     public String ImagePregunta(){
-      return Pregunta_aleatoria+1;  
+      return Pregunta_aleatoria;  
     }
     
     public int VerificarRespuesta(){
@@ -403,7 +404,7 @@ public class Import_Image {
     }
     
     public String RespuestaLink(){        
-      return "https://github.com/CDaniel0228/GAME_INTRO";  
+      return Link;  
     }
     
 }

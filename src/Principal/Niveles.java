@@ -5,27 +5,26 @@
  */
 package Principal;
 
-
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import Diseño.Import_Image;
 
 public class Niveles extends javax.swing.JFrame {
+    public static final String Rutas="../src/Source/";
      Import_Image nueva=new Import_Image();
-     ImageIcon I_fondo=new javax.swing.ImageIcon(getClass().getResource("/Src//Fondo5.jpg"));
+     ImageIcon I_fondo=new ImageIcon(Rutas+"Fondo5.jpg");
      
     public Niveles() {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        
         IFondo.setIcon(new ImageIcon(I_fondo.getImage().getScaledInstance(530, 500, Image.SCALE_SMOOTH)));
         Btn_confi.setIcon(new ImageIcon(nueva.Botones().getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
         btn_ayuda.setIcon(new ImageIcon(nueva.Botones().getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
         Btn_tienda.setIcon(new ImageIcon(nueva.Botones().getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-        btn_puntos.setIcon(new ImageIcon(nueva.Botones().getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
         Btn_cambiar.setIcon(new ImageIcon(nueva.Botones().getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
         Btn_inicio.setIcon(new ImageIcon(nueva.Botones().getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+       
     }
 
     
@@ -40,17 +39,15 @@ public class Niveles extends javax.swing.JFrame {
         btn_ayuda = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Btn_cambiar = new javax.swing.JButton();
-        btn_puntos = new javax.swing.JButton();
         Btn_tienda = new javax.swing.JButton();
         Btn_confi = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         IFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,13 +57,24 @@ public class Niveles extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Rd_fasil.setFont(new java.awt.Font("PMingLiU", 1, 12)); // NOI18N
-        Rd_fasil.setText("Fasil");
+        Rd_fasil.setSelected(true);
+        Rd_fasil.setText("Facil");
         Rd_fasil.setContentAreaFilled(false);
+        Rd_fasil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Rd_fasilActionPerformed(evt);
+            }
+        });
         jPanel1.add(Rd_fasil, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, -1, -1));
 
         Rd_difisil.setFont(new java.awt.Font("PMingLiU", 1, 12)); // NOI18N
-        Rd_difisil.setText("Difisil");
+        Rd_difisil.setText("Dificil");
         Rd_difisil.setContentAreaFilled(false);
+        Rd_difisil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Rd_difisilActionPerformed(evt);
+            }
+        });
         jPanel1.add(Rd_difisil, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, -1, -1));
 
         Btn_inicio.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +82,7 @@ public class Niveles extends javax.swing.JFrame {
                 Btn_inicioActionPerformed(evt);
             }
         });
-        jPanel1.add(Btn_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 50, 50));
+        jPanel1.add(Btn_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 300, 50, 50));
 
         btn_ayuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,19 +102,12 @@ public class Niveles extends javax.swing.JFrame {
         });
         jPanel1.add(Btn_cambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 50, 50));
 
-        btn_puntos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_puntosActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_puntos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 50, 50));
-
         Btn_tienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_tiendaActionPerformed(evt);
             }
         });
-        jPanel1.add(Btn_tienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, 50, 50));
+        jPanel1.add(Btn_tienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, 50, 50));
 
         Btn_confi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,17 +116,9 @@ public class Niveles extends javax.swing.JFrame {
         });
         jPanel1.add(Btn_confi, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 50, 50));
 
-        jLabel2.setFont(new java.awt.Font("Traditional Arabic", 1, 12)); // NOI18N
-        jLabel2.setText("PUNTOS");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Traditional Arabic", 1, 12)); // NOI18N
-        jLabel3.setText("JUGAR");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 280, -1, -1));
-
         jLabel4.setFont(new java.awt.Font("Traditional Arabic", 1, 12)); // NOI18N
         jLabel4.setText("TIENDA");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 410, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Traditional Arabic", 1, 10)); // NOI18N
         jLabel5.setText("CONFIGURACION");
@@ -141,8 +134,12 @@ public class Niveles extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Traditional Arabic", 1, 12)); // NOI18N
         jLabel8.setText("AYUDA");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 410, -1, -1));
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 100, 70));
+
+        jLabel10.setFont(new java.awt.Font("Traditional Arabic", 1, 12)); // NOI18N
+        jLabel10.setText("JUGAR");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, -1));
         jPanel1.add(IFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 500));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -178,10 +175,23 @@ public class Niveles extends javax.swing.JFrame {
         tienda.setVisible(true);
     }//GEN-LAST:event_Btn_tiendaActionPerformed
 
-    private void btn_puntosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_puntosActionPerformed
-        Puntos puntos= new Puntos();
-        puntos.setVisible(true);
-    }//GEN-LAST:event_btn_puntosActionPerformed
+    private void Rd_fasilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rd_fasilActionPerformed
+       if(Rd_fasil.isSelected()){
+           Rd_difisil.setSelected(false);
+           Rd_fasil.setSelected(true);
+           
+       }
+       
+    }//GEN-LAST:event_Rd_fasilActionPerformed
+
+    private void Rd_difisilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rd_difisilActionPerformed
+        if(Rd_fasil.isSelected()){
+           Rd_difisil.setSelected(true);
+           Rd_fasil.setSelected(false);
+           
+       }
+       
+    }//GEN-LAST:event_Rd_difisilActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,10 +237,8 @@ public class Niveles extends javax.swing.JFrame {
     private javax.swing.JRadioButton Rd_difisil;
     private javax.swing.JRadioButton Rd_fasil;
     private javax.swing.JButton btn_ayuda;
-    private javax.swing.JButton btn_puntos;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

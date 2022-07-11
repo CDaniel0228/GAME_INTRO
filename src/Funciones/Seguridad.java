@@ -6,7 +6,8 @@ import java.util.LinkedHashSet;
 import java.util.Scanner;
 
 public class Seguridad{
-    public static void main(String []args) {
+    
+    public static void Correr() {
         Scanner sc =new Scanner(System.in);
         Seguridad Recifrar=new Seguridad();
         

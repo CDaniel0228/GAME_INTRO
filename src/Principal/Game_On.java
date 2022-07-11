@@ -12,8 +12,11 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import javax.swing.Timer;
+import Funciones.Guardar;
+import java.io.File;
 
 public class Game_On extends javax.swing.JFrame {
+    public static final String Rutas="../src/Source/";
     Import_Image nueva=new Import_Image();
     Timer T;
     int respuesta=0;
@@ -22,10 +25,16 @@ public class Game_On extends javax.swing.JFrame {
     int segundos=0;
     int Preguntas=0;
     boolean Siguiente=true, Confirmar=false;
-    ImageIcon I_fondo=new javax.swing.ImageIcon(getClass().getResource("/Src//Fondo4.jpg"));
+    ImageIcon I_fondo=new ImageIcon(Rutas+"Fondo4.jpg");
+    File txt = new File("C:/GAME_ON/Usuarios.txt");
+    Guardar guardarPuntos= new Guardar();
+    
     public Game_On() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        guardarPuntos.SubirUsuario_txt("C:\\GAME_ON\\Usuarios.txt");
+        segundos=guardarPuntos.TiempoTotal();
         Tiempo();
         
         IFondo.setIcon(new ImageIcon(I_fondo.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH)));
@@ -69,6 +78,7 @@ public class Game_On extends javax.swing.JFrame {
         IFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -149,7 +159,7 @@ public class Game_On extends javax.swing.JFrame {
         jPanel1.add(op_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 20, 20));
 
         Lb_tiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Lb_tiempo.setText("20");
+        Lb_tiempo.setText("10");
         Lb_tiempo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(255, 255, 255), new java.awt.Color(0, 0, 0), new java.awt.Color(51, 51, 51), new java.awt.Color(0, 0, 51)));
         jPanel1.add(Lb_tiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 14, 40, 20));
 
@@ -188,13 +198,31 @@ public class Game_On extends javax.swing.JFrame {
         } catch (IOException | URISyntaxException e){
     JOptionPane.showMessageDialog(this, nueva.RespuestaLink());
         }
+    Lb_tiempo.setText("");
     }//GEN-LAST:event_Btn_informacionActionPerformed
 
     private void Btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_volverActionPerformed
-        Niveles niveles= new Niveles();
-        T.stop();
-        niveles.setVisible(true);
-        this.setVisible(false);
+        
+       
+      if(Preguntas>8){
+          Niveles niveles= new Niveles();
+              T.stop();
+              niveles.setVisible(true);
+              this.setVisible(false);
+      } else {
+          int n = JOptionPane.showConfirmDialog(
+                  this,
+                  "SI SALE ANTES DE TERMINAR EL JUEGO \n NO SE GUARDARAN SUS PUNTOS\n"
+                          + "¿DESEA SALIR?",
+                  "SALIDA",
+                  JOptionPane.YES_NO_OPTION);
+          if(n==0 ){
+              Niveles niveles= new Niveles();
+              T.stop();
+              niveles.setVisible(true);
+              this.setVisible(false);
+          }
+        }
     }//GEN-LAST:event_Btn_volverActionPerformed
 
     private void Btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_siguienteActionPerformed
@@ -206,7 +234,7 @@ public class Game_On extends javax.swing.JFrame {
         Image_4.setIcon(new ImageIcon(nueva.ImagePrincipal().getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
         Lb_pregunta.setText(nueva.ImagePregunta());
         Tiempo();
-        
+        Lb_tiempo.setText("10");
         op_1.setSelected(false);
         op_2.setSelected(false);
         op_3.setSelected(false);
@@ -215,8 +243,12 @@ public class Game_On extends javax.swing.JFrame {
         Confirmar=false;
         Preguntas++;
         }else if(Preguntas>8){
+            
             JOptionPane.showMessageDialog(this, "HA COMLETADO EL JUEGO \n"+
                     "PUNTOS \t"+Puntos, "END GAME", JOptionPane.INFORMATION_MESSAGE);
+            
+           guardarPuntos.agregarPuntos(Puntos);
+           guardarPuntos.txt_GuardarUsuario(txt);
         }else{
             JOptionPane.showMessageDialog(this, "DEBE ELEGIR UNA OPCION", "RESPUESTA NULA", JOptionPane.ERROR_MESSAGE);
         } 
@@ -224,20 +256,27 @@ public class Game_On extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_siguienteActionPerformed
 
     private void Btn_comprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_comprobarActionPerformed
-       if(nueva.VerificarRespuesta()==respuesta && Siguiente){
+       if(nueva.VerificarRespuesta()==respuesta && Siguiente && Vidas!=0){
            Puntos+=10;
            Lb_puntos.setText(Puntos+"");
            Siguiente=false;
+           T.stop();
            JOptionPane.showMessageDialog(this, "CORRECTA", "FELICIDADES", JOptionPane.INFORMATION_MESSAGE);
-       }else if(nueva.VerificarRespuesta()!=respuesta && Siguiente) {
+       }else if(nueva.VerificarRespuesta()!=respuesta && Siguiente && Vidas!=0) {
            Vidas--;
            Lb_vidas.setText(Vidas+"");
            Siguiente=false;
+           T.stop();
            JOptionPane.showMessageDialog(this, "   INCORRECTA", "VUELVE A INTENTARLO", JOptionPane.INFORMATION_MESSAGE);
            
+       }else if(Vidas==0){
+           T.stop();
+           JOptionPane.showMessageDialog(this, "   gAME OVER", "SIN VIDAS", JOptionPane.INFORMATION_MESSAGE);
+           Confirmar=false;
+           guardarPuntos.txt_GuardarUsuario(txt);
        }
        Confirmar=true;
-       T.stop();
+       
     }//GEN-LAST:event_Btn_comprobarActionPerformed
 
     private void op_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_op_1ActionPerformed
@@ -282,7 +321,7 @@ public class Game_On extends javax.swing.JFrame {
 
     public void Tiempo(){
        
-       segundos=20;
+       segundos=guardarPuntos.TiempoTotal();
        T=new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
